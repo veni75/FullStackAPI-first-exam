@@ -1,24 +1,24 @@
 /**
  * 1. A fájlok kezeléséhez az fs modul promise alapú verzióját használd.
  */
- const {readFile,writeFile} = require('fs').promises
+const { readFile, writeFile } = require('fs').promises
 /**
  * 2. Állítsd be az azonos mappában található .json fájl elérési útját a path 
  * modul join metódusának segítségével.
  */
- 
- const { join } = require('path');
- const jsonPath = join(__dirname, 'db', 'products.json');
 
- /**
-  * 3. A jsonPath útvonalon található fájl tartalmát beolvassa és értelmezi, 
-  * majd visszaadja a kapott tömböt.
-  * @returns objektumok tömbje
-  */
- const getList = async (file) => {
+const { join } = require('path');
+const jsonPath = join(__dirname, 'db', 'products.json');
+
+/**
+ * 3. A jsonPath útvonalon található fájl tartalmát beolvassa és értelmezi, 
+ * majd visszaadja a kapott tömböt.
+ * @returns objektumok tömbje
+ */
+const getList = async (file) => {
     const list = await readFile(file)
     return JSON.parse(list)
- };
+};
 
 /**
  * 4. A kapott tömböt json formátumra alakítja és beleírja a jsonPath útvonalon 
@@ -40,9 +40,9 @@ const saveList = async (file, list = []) => {
  */
 const update = async (entity = {}) => {
     const list = await getList(jsonPath);
-    const index = list.findIndex( item => item.id === entity.id );
-    list[index] = {...list[index], ...entity};    
-    await saveList(jsonPath, list);    
+    const index = list.findIndex(item => item.id === entity.id);
+    list[index] = { ...list[index], ...entity };
+    await saveList(jsonPath, list);
     return list[index];
 };
 

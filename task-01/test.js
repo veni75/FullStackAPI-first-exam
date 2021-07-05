@@ -1,7 +1,7 @@
 /**
  * 1. Töltsd be az fn custom modulban található függvényeket.
  */
- const {get,create,update,remove}= require('./fn')
+const { get, create, update, remove } = require('./fn')
 /**
  * Ez a tömb a tesztelést szolgálja, nincs vele teendőd.
  */

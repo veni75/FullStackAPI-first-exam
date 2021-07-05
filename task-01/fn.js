@@ -33,8 +33,8 @@ const update = (list = [], entity = {}) => {
         return false;
     }
 
-    const index = list.findIndex( item => item.id === entity.id );
-    list[index] = {...list[index], ...entity};
+    const index = list.findIndex(item => item.id === entity.id);
+    list[index] = { ...list[index], ...entity };
     return list[index];
 };
 
@@ -53,4 +53,4 @@ const remove = (list = [], id = 0) => {
 /**
  * 5. Exportáld ki a négy függvényt, hogy más fájlokból is elérhetőek legyenek.
  */
- module.exports = Object.freeze({ get, create, update, remove })
+module.exports = Object.freeze({ get, create, update, remove })
